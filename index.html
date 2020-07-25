@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<h1 class = "header"><b>NFL Fantasy Draft </b></h1>
+<button id = "overall" style = "display:none;" onclick = "showOverall()"></button>
+<div id = "start">
+<h4> You are entering a 25 round NFL Fantasy Draft. In each round, you will get to choose from three random players. Be sure to pay close attention to player overalls, as they will affect your team's performance. </h4>
+<button onclick = "startDraft()">Start Draft</button>
+</div>
+<div id="teamSelection" style = "display:none;">
+  <h1> Select a Team </h1>
+  <form id="teamPick" onsubmit="submitTeamName()">
+    <input type="radio" name="teamName" id="NYG" value="New York Giants">
+    <label for="NYG">New York Giants </label><br>
+    <input type="radio" name="teamName" id="ARI" value="Arizona Cardinals">
+    <label for="ARI">Arizona Cardinals </label><br>
+    <input type="radio" name="teamName" id="ATL" value="Atlanta Falcons">
+    <label for="ATL">Atlanta Falcons </label><br>
+    <input type="radio" name="teamName" id="BAL" value="Baltimore Ravens">
+    <label for="BAL">Baltimore Ravens </label><br>
+    <input type="radio" name="teamName" id="BUF" value="Buffalo Bills">
+    <label for="BUF">Buffalo Bills </label><br>
+    <input type="radio" name="teamName" id="CAR" value="Carolina Panthers">
+    <label for="CAR">Carolina Panthers </label><br>
+    <input type="radio" name="teamName" id="CIN" value="Cincinnati Bengals">
+    <label for="CIN">Cincinnati Bengals </label><br>
+    <input type="radio" name="teamName" id="CHI" value="Chicago Bears">
+    <label for="CHI">Chicago Bears </label><br>
+    <input type="radio" name="teamName" id="CLE" value="Cleveland Browns">
+    <label for="CLE">Cleveland Browns </label><br>
+    <input type="radio" name="teamName" id="DAL" value="Dallas Cowboys">
+    <label for="DAL">Dallas Cowboys </label><br>
+    <input type="radio" name="teamName" id="DEN" value="Denver Broncos">
+    <label for="DEN">Denver Broncos </label><br>
+    <input type="radio" name="teamName" id="DET" value="Detroit Lions">
+    <label for="DET">Detroit Lions </label><br>
+    <input type="radio" name="teamName" id="GB" value="Green Bay Packers">
+    <label for="GB">Green Bay Packers </label><br>
+    <input type="radio" name="teamName" id="HOU" value="Houston Texans">
+    <label for="HOU">Houston Texans </label><br>
+    <input type="radio" name="teamName" id="IND" value="Indianapolis Colts">
+    <label for="IND">Indianapolis Colts </label><br>
+    <input type="radio" name="teamName" id="JAG" value="Jacksonville Jaguars">
+    <label for="JAG">Jacksonville Jaguars </label><br>
+    <input type="radio" name="teamName" id="KC" value="Kansas City Chiefs">
+    <label for="KC">Kansas City Chiefs </label><br>
+    <input type="radio" name="teamName" id="LAC" value="Los Angeles Chargers">
+    <label for="LAC">Los Angeles Chargers </label><br>
+    <input type="radio" name="teamName" id="LAR" value="Los Angeles Rams">
+    <label for="LAR">Los Angeles Rams </label><br>
+    <input type="radio" name="teamName" id="MIA" value="Miami Dolphins">
+    <label for="MIA">Miami Dolphins </label><br>
+    <input type="radio" name="teamName" id="MIN" value="Minnesota Vikings">
+    <label for="MIN">Minnesota Vikings </label><br>
+    <input type="radio" name="teamName" id="NE" value="New England Patriots">
+    <label for="NE">New England Patriots </label><br>
+    <input type="radio" name="teamName" id="NO" value="New Orleans Saints">
+    <label for="NO">New Orleans Saints </label><br>
+    <input type="radio" name="teamName" id="NYJ" value="New York Jets">
+    <label for="NYJ">New York Jets </label><br>
+    <input type="radio" name="teamName" id="OAK" value="Las Vegas Raiders">
+    <label for="OAK">Las Vegas Raiders </label><br>
+    <input type="radio" name="teamName" id="PHI" value="Phladelphia Eagles">
+    <label for="PHI">Phladelphia Eagles </label><br>
+    <input type="radio" name="teamName" id="PIT" value="Pittsburgh Steelers">
+    <label for="PIT">Pittsburgh Steelers </label><br>
+    <input type="radio" name="teamName" id="SF" value="San Fransisco 49ers">
+    <label for="SF">San Fransisco 49ers </label><br>
+    <input type="radio" name="teamName" id="SEA" value="San Fransisco 49ers">
+    <label for="SEA">Seattle Seahawks</label><br>
+    <input type="radio" name="teamName" id="TB" value="Tampa Bay Buccanneers">
+    <label for="TB">Tampa Bay Buccanneers</label><br>
+    <input type="radio" name="teamName" id="TEN" value="Tennessee Titans">
+    <label for="TEN">Tennessee Titans</label><br>
+    <input type="radio" name="teamName" id="WAS" value="Washington Redskins">
+    <label for="WAS">Washington Redskins</label><br>
+    <input type="button" id="btn" value="Select Team"></button>
+  </form>
+</div>
+
+
+
+<div id = "qbRound" style = "display:none">
+    <h4> Quarterback Round </h4> <br>
+<input type = "radio"  name = "qb" value = "qb1" onclick = "qbSelect1()"></input>
+<label id = "qb1" class = "qbdisplay"></label><br>
+<input type = "radio"  name = "qb" value = "qb2" onclick = "qbSelect2()"></input>
+<label id = "qb2" class = "qbdisplay"></label><br>
+<input type = "radio"  name = "qb" value = "qb3" onclick = "qbSelect3()"></input>
+<label id = "qb3" class = "qbdisplay"></label><br>
+</div>
+
+<div id = "hbRound" style = "display:none">
+<h4> Runningback Round </h4> <br>
+<input type = "radio"  name = "hb" value = "hb1" onclick = "hbSelect1()"></input>
+<label id = "hb1" class = "hbdisplay"></label><br>
+<input type = "radio"  name = "hb" value = "hb2" onclick = "hbSelect2()"></input>
+<label id = "hb2" class = "hbdisplay"></label><br>
+<input type = "radio"  name = "hb" value = "hb3" onclick = "hbSelect3()"></input>
+<label id = "hb3" class = "hbdisplay"></label><br>
+</div>
+
+<div id = "wr1Round" style = "display:none">
+  <h4> Wide Receiver 1 Round </h4> <br>
+<input type = "radio"  name = "wr" value = "wr1" onclick = "wrSelect1()"></input>
+<label id = "wr1" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr2" onclick = "wrSelect2()"></input>
+<label id = "wr2" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr3" onclick = "wrSelect3()"></input>
+<label id = "wr3" class = "wrdisplay"></label><br>
+</div>
+
+<div id = "wr2Round" style = "display:none">
+    <h4> Wide Receiver 2 Round </h4> <br>
+<input type = "radio"  name = "wr" value = "wr1" onclick = "wrSelect4()"></input>
+<label id = "wr4" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr2" onclick = "wrSelect5()"></input>
+<label id = "wr5" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr3" onclick = "wrSelect6()"></input>
+<label id = "wr6" class = "wrdisplay"></label><br>
+</div>
+
+<div id = "wr3Round" style = "display:none">
+    <h4> Wide Receiver 3 Round </h4> <br>
+<input type = "radio"  name = "wr" value = "wr1" onclick = "wrSelect7()"></input>
+<label id = "wr7" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr2" onclick = "wrSelect8()"></input>
+<label id = "wr8" class = "wrdisplay"></label><br>
+<input type = "radio"  name = "wr" value = "wr3" onclick = "wrSelect9()"></input>
+<label id = "wr9" class = "wrdisplay"></label><br>
+</div>
+
+<div id = "teRound" style = "display:none">
+    <h4> Tight End Round </h4> <br>
+<input type = "radio"  name = "te" value = "te1" onclick = "teSelect1()"></input>
+<label id = "te1" class = "tedisplay"></label><br>
+<input type = "radio"  name = "te" value = "te2" onclick = "teSelect2()"></input>
+<label id = "te2" class = "tedisplay"></label><br>
+<input type = "radio"  name = "te" value = "te3" onclick = "teSelect3()"></input>
+<label id = "te3" class = "tedisplay"></label><br>
+</div>
+
+<div id = "og1Round" style = "display:none">
+    <h4> Offensive Guard 1 Round </h4> <br>
+<input type = "radio"  name = "og" value = "og1" onclick = "ogSelect1()"></input>
+<label id = "og1" class = "ogdisplay"></label><br>
+<input type = "radio"  name = "og" value = "og2" onclick = "ogSelect2()"></input>
+<label id = "og2" class = "ogdisplay"></label><br>
+<input type = "radio"  name = "og" value = "og3" onclick = "ogSelect3()"></input>
+<label id = "og3" class = "ogdisplay"></label><br>
+</div>
+
+<div id = "og2Round" style = "display:none">
+    <h4> Offensive Guard 2 Round </h4> <br>
+<input type = "radio"  name = "og" value = "og4" onclick = "ogSelect4()"></input>
+<label id = "og4" class = "ogdisplay"></label><br>
+<input type = "radio"  name = "og" value = "og5" onclick = "ogSelect5()"></input>
+<label id = "og5" class = "ogdisplay"></label><br>
+<input type = "radio"  name = "og" value = "og6" onclick = "ogSelect6()"></input>
+<label id = "og6" class = "ogdisplay"></label><br>
+</div>
+
+<div id = "cRound" style = "display:none">
+    <h4> Center Round </h4> <br>
+<input type = "radio"  name = "c" value = "c1" onclick = "cSelect1()"></input>
+<label id = "c1" class = "cdisplay"></label><br>
+<input type = "radio"  name = "c" value = "c2" onclick = "cSelect2()"></input>
+<label id = "c2" class = "cdisplay"></label><br>
+<input type = "radio"  name = "c" value = "c3" onclick = "cSelect3()"></input>
+<label id = "c3" class = "cdisplay"></label><br>
+</div>
+
+<button id = "showTeam" onclick = "showTeam()" style = "display:none; float:right;">Show Team </button>
+<div id = "cumovr" style = "display:none"></div>
+
+<script src = "draftData.js"></script>
+
+<button id = "resetButton" onclick = "reset()" style = "bottom:0; position: fixed; float:right;">Redraft</button>
+
+
+
+<style>
+header{
+  position:fixed;
+
+}
+html {
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+</style>
+</html>
